@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>README.html</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+
+</head>
+
+<body>
+
+<h1>Raspberry Pi GPIO switch to play audio</h1>
+<h2>What does it do?</h2>
+<p>This code will play an audio file (in <code>wav</code> format) when it detects a switch closes the connection between <code>ground</code> and <code>GPIO pin 2</code>. If the switch is held closed until the audio file finishes, it will restart. If the switch is opened during play, and then closed again, the audio file will start from the beginning.</p>
+<h2>Setup</h2>
+<p><img alt="pin diagram for rpi" src="images/pinout.png" title="From the rpi official website" /></p>
+<ul>
+<li>Connect a 'normally open' switch between <code>Ground (pin 6)</code> and <code>GPIO 2 (pin 3)</code>.</li>
+<li>Log into your rpi and clone this repo.</li>
+<li>Copy your audio file (in <code>wav</code> format), to the same folder as the script <code>pi-switch.py</code></li>
+<li>Rename the audio file to <code>audio.wav</code> (or edit the script to use your file name)</li>
+<li>Install the dependencies: <code>pip install -r requirements.txt</code></li>
+<li>Run the script: <code>./pi-switch.py</code></li>
+</ul>
+<h2>My switch is normally closed (NC) not normally open (NO)!</h2>
+<p>If your switch's default state is normally closed, then you can modify this line:</p>
+<p><code>if button.is_pressed:</code></p>
+<p>to read:</p>
+<p><code>if not button.is_pressed:</code></p>
+<p>This should make it so that you get the audio starts when the switch is pressed.</p>
+</body>
+</html>
