@@ -10,7 +10,6 @@ wave_obj = sa.WaveObject.from_wave_file("audio.wav")
 play_obj = wave_obj.play()
 play_obj.stop()
 
-reset_stream = False
 while 1:
     try:
         if button.is_pressed:
