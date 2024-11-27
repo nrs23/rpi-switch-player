@@ -1,3 +1,4 @@
+#!/usr/bin/python
 from gpiozero import Button
 import simpleaudio as sa
 import sys
