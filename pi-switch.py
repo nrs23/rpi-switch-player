@@ -19,8 +19,7 @@ while 1:
         else:
             if play_obj.is_playing():
                 play_obj.stop()
-
-            time.sleep(0.1)
+        time.sleep(0.1)
     except KeyboardInterrupt:
         play_obj.stop()
         sys.exit()
